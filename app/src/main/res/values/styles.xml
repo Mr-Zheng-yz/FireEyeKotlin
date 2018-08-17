@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--<item name="android:windowAnimationStyle">@style/AnimationActivity</item>-->
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:windowBackground">@color/white</item>
+    </style>
+
+    <!--全屏显示-->
+    <style name="ViewBigPicTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/white</item>
+        <item name="colorAccent">@color/white</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowAnimationStyle">@style/default_animation_up</item>
+    </style>
+
+    <!--打开大图时动画-->
+    <style name="default_animation_up" mce_bogus="1" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_up_in</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_up_out</item>
+    </style>
+
+</resources>

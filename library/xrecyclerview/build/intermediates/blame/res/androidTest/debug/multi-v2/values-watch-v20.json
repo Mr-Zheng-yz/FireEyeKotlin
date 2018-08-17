@@ -1,0 +1,36 @@
+{
+    "logs": [
+        {
+            "outputFile": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-watch-v20\\values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-watch-v20\\values-watch-v20.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\values-watch-v20\\values-watch-v20.xml",
+                    "from": {
+                        "startLines": "2,5,8",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,214,385",
+                        "endLines": "4,7,10",
+                        "endColumns": "12,12,12",
+                        "endOffsets": "209,380,553"
+                    }
+                }
+            ]
+        }
+    ]
+}

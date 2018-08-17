@@ -1,0 +1,154 @@
+[
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\kaws_refresh_header.xml",
+        "source": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\kaws_refresh_header.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_item_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\select_dialog_item_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_activity_chooser_view.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_select_dialog_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_select_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_singlechoice_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\select_dialog_singlechoice_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_item_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_popup_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\support_simple_spinner_dropdown_item.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\yun_refresh_footer.xml",
+        "source": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\bundles\\debug\\res\\layout\\yun_refresh_footer.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_popup_menu_header_item_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_popup_menu_header_item_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6d08e5edab3804d778d5d06b876efc4\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_screen_simple.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_checkbox.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_list_menu_item_checkbox.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6d08e5edab3804d778d5d06b876efc4\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_list_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_screen_content_include.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_alert_dialog_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_activity_chooser_view_list_item.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_activity_chooser_view_list_item.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_action.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6d08e5edab3804d778d5d06b876efc4\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_view.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_search_view.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_radio.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_list_menu_item_radio.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_simple_overlay_action_mode.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_screen_simple_overlay_action_mode.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_menu_item_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_menu_item_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_part_time.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6d08e5edab3804d778d5d06b876efc4\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\select_dialog_multichoice_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\select_dialog_multichoice_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_tooltip.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_tooltip.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_up_container.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_bar_up_container.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_expanded_menu_layout.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_dialog_title_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_bar.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_mode_bar.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f6d08e5edab3804d778d5d06b876efc4\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_list_menu_item_icon.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_list_menu_item_icon.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_bar_title_item.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_bar_title_item.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_alert_dialog_title_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_alert_dialog_title_material.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_screen_toolbar.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "C:\\repository\\FireEyeKotlin\\library\\xrecyclerview\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\abc_action_mode_close_item_material.xml",
+        "source": "C:\\Users\\彦泽\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-27.1.1.aar\\83c939b7e3b06a128375d3dd4085b5cb\\res\\layout\\abc_action_mode_close_item_material.xml"
+    }
+]
