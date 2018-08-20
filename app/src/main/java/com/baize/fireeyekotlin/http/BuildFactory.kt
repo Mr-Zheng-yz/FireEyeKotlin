@@ -1,12 +1,15 @@
 package com.baize.fireeyekotlin.http
 
+import com.baize.fireeyekotlin.app.FireEyeApp
 import com.baize.fireeyekotlin.http.service.ApiQsbk
-import okhttp3.Interceptor
-import okhttp3.OkHttpClient
-import okhttp3.Response
+import com.baize.fireeyekotlin.utils.CheckNetwork
+import com.baize.fireeyekotlin.utils.DebugUtil
+import okhttp3.*
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
+import java.io.File
 import java.util.concurrent.TimeUnit
 
 /**
@@ -58,20 +61,80 @@ class BuildFactory private constructor() {
 
     //获取的是不安全Client（信任所有证书）
     fun getUnsafeOkHttpClient(): OkHttpClient {
+        val httpCacheDirectory = File("${FireEyeApp.instance?.cacheDir}response")
+        val cacheSize = 50 * 1024 * 1024
+        val cache = Cache(httpCacheDirectory, cacheSize.toLong())
         val okBuilder = OkHttpClient.Builder()
-        okBuilder.addInterceptor(NormalIntercept())
         okBuilder.readTimeout(30, TimeUnit.SECONDS)
         okBuilder.connectTimeout(30, TimeUnit.SECONDS)
         okBuilder.writeTimeout(30, TimeUnit.SECONDS)
+        //添加缓存，无网络时会拿缓存，只会缓存get请求
+        okBuilder.addInterceptor(HttpHeadInterceptor())
+        okBuilder.addInterceptor(AddCacheInterceptor())
+        okBuilder.cache(cache)
+        okBuilder.addInterceptor(getInterceptor())
         return okBuilder.build()
     }
 
-    //没有特殊操作的拦截器
-    class NormalIntercept : Interceptor {
+    //处理请求头
+    class HttpHeadInterceptor : Interceptor {
         override fun intercept(chain: Interceptor.Chain?): Response {
-            val request = chain?.request()
+            val request: Request = chain!!.request()
+            val builder: Request.Builder = request.newBuilder()
+            builder.addHeader("Accept", "application/json;versions=1")
+            if (CheckNetwork.isNetworkConnected(FireEyeApp.instance())) {
+                val maxAge = 60
+                builder.addHeader("Cache-Control", "public, max-age=$maxAge")
+            } else {
+                val maxStale = 60 * 60 * 24 * 28
+                builder.addHeader("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
+            }
+            return chain.proceed(builder.build())
+        }
 
-            return chain?.proceed(request)!!
+    }
+
+    //缓存Get请求
+    class AddCacheInterceptor : Interceptor {
+        override fun intercept(chain: Interceptor.Chain?): Response {
+            val cacheBuilder: CacheControl.Builder = CacheControl.Builder()
+            cacheBuilder.maxAge(0, TimeUnit.SECONDS)
+            cacheBuilder.maxStale(365, TimeUnit.DAYS)
+            val cacheControl = cacheBuilder.build()
+            var request: Request = chain!!.request()
+            if (!CheckNetwork.isNetworkConnected(FireEyeApp.instance())) {
+                request = request.newBuilder()
+                        .cacheControl(cacheControl)
+                        .build()
+            }
+            val originalResponse: Response = chain.proceed(request)
+            if (CheckNetwork.isNetworkConnected(FireEyeApp.instance())) {
+                //read from cache
+                val maxAge = 0
+                return originalResponse.newBuilder()
+                        .removeHeader("Pragma")
+                        .header("Cache-Control", "public ,max-age=$maxAge")
+                        .build()
+            } else {
+                // tolerate 4-weeks stale
+                val maxStale = 60 * 60 * 24 * 28
+                return originalResponse.newBuilder()
+                        .removeHeader("Pragma")
+                        .header("Cache-Control", "public, only-if-cached, max-stale=$maxStale")
+                        .build()
+            }
         }
     }
+
+    //日志拦截器
+    fun getInterceptor(): HttpLoggingInterceptor {
+        val interceptor = HttpLoggingInterceptor()
+        if (DebugUtil.DEBUG) {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.BODY)//测试
+        } else {
+            interceptor.setLevel(HttpLoggingInterceptor.Level.NONE)//打包
+        }
+        return interceptor
+    }
+
 }
