@@ -14,6 +14,8 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.utils.PerfectClickListener
 import kotlinx.android.synthetic.main.fragment_base.*
 import kotlinx.android.synthetic.main.layout_loading_view.*
+import rx.Subscription
+import rx.subscriptions.CompositeSubscription
 
 /**
  * Created by 彦泽 on 2018/8/15.
@@ -33,7 +35,7 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
     // 动画
     private var mAnimationDrawable: AnimationDrawable? = null
 
-//    private var mCompositeSubscription: CompositeSubscription? = null
+    private var mCompositeSubscription: CompositeSubscription? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val ll = inflater.inflate(R.layout.fragment_base, null)
@@ -167,23 +169,23 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
         }
     }
 
-//    fun addSubscription(s: Subscription) {
-//        if (this.mCompositeSubscription == null) {
-//            this.mCompositeSubscription = CompositeSubscription()
-//        }
-//        this.mCompositeSubscription!!.add(s)
-//    }
-//
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        if (this.mCompositeSubscription != null && mCompositeSubscription!!.hasSubscriptions()) {
-//            this.mCompositeSubscription!!.unsubscribe()
-//        }
-//    }
-//
-//    fun removeSubscription() {
-//        if (this.mCompositeSubscription != null && mCompositeSubscription!!.hasSubscriptions()) {
-//            this.mCompositeSubscription!!.unsubscribe()
-//        }
-//    }
+    fun addSubscription(s: Subscription) {
+        if (this.mCompositeSubscription == null) {
+            this.mCompositeSubscription = CompositeSubscription()
+        }
+        this.mCompositeSubscription!!.add(s)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (this.mCompositeSubscription != null && mCompositeSubscription!!.hasSubscriptions()) {
+            this.mCompositeSubscription!!.unsubscribe()
+        }
+    }
+
+    fun removeSubscription() {
+        if (this.mCompositeSubscription != null && mCompositeSubscription!!.hasSubscriptions()) {
+            this.mCompositeSubscription!!.unsubscribe()
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.baize.fireeyekotlin.http
 
 import com.baize.fireeyekotlin.app.FireEyeApp
+import com.baize.fireeyekotlin.http.service.ApiKaiyan
 import com.baize.fireeyekotlin.http.service.ApiQsbk
 import com.baize.fireeyekotlin.utils.CheckNetwork
 import com.baize.fireeyekotlin.utils.DebugUtil
@@ -18,6 +19,7 @@ import java.util.concurrent.TimeUnit
 class BuildFactory private constructor() {
 
     private var gsbkHttps: Any? = null//糗事百科api
+    private var kaiYanHttps: Any? = null//开眼视频api
 
     private object Holder {
         val INSTANCE = BuildFactory()
@@ -39,8 +41,18 @@ class BuildFactory private constructor() {
                 }
                 return gsbkHttps as T
             }
+            ApiKaiyan.API_KAIYAN -> {
+                if (kaiYanHttps == null) {
+                    synchronized(BuildFactory::class.java) {
+                        if (kaiYanHttps == null) {
+                            kaiYanHttps = getBuilder(url).build().create(apiService)
+                        }
+                    }
+                }
+                return kaiYanHttps as T
+            }
         }
-        return gsbkHttps as T
+        return kaiYanHttps as T
     }
 
     //==================================创建Retrofit.Builder（创建拦截器等）==============================
