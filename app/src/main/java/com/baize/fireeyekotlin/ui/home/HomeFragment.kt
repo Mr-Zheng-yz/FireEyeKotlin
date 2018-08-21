@@ -1,14 +1,15 @@
 package com.baize.fireeyekotlin.ui.home
 
+import android.arch.lifecycle.Observer
+import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.adapter.HomeVideoAdapter
 import com.baize.fireeyekotlin.base.BaseFragment
 import com.baize.fireeyekotlin.databinding.FragmentHomeBinding
-import com.baize.fireeyekotlin.http.DefaultSubscriber
-import com.baize.fireeyekotlin.http.reqs.ReqoKaiyan
-import com.baize.fireeyekotlin.mvvm.model.HomeBean
+import com.baize.fireeyekotlin.bean.HomeBean
+import com.baize.fireeyekotlin.mvvm.viewmodel.HomeViewModel
 import com.baize.fireeyekotlin.utils.showToast
 import com.example.xrecyclerview.XRecyclerView
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -20,6 +21,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private var mIsFirst = true
     private var mPrepare = false
     private var mAdapter: HomeVideoAdapter? = null
+    private var mViewModel: HomeViewModel? = null
 
     override fun setContent(): Int {
         return R.layout.fragment_home
@@ -28,6 +30,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView()
+        mViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
         mPrepare = true
         loadData()
     }
@@ -57,20 +60,19 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     }
 
     fun requestNet() {
-        ReqoKaiyan.instance.getHomeData()
-                .subscribe(object : DefaultSubscriber<HomeBean>() {
-                    override fun _onError(errMsg: String) {
-                        context?.showToast(errMsg)
-                        showError()
-                    }
-
-                    override fun _onNext(entity: HomeBean) {
-                        mAdapter?.addAll(entity.issueList!![0].itemList.drop(1)) //去掉第一个
-                        mAdapter?.notifyDataSetChanged()
-                        mIsFirst = false
-                        showContentView()
-                    }
-                })
+        mViewModel?.homeVideo?.observe(this, object : Observer<HomeBean> {
+            override fun onChanged(t: HomeBean?) {
+                if (t != null) {
+                    mAdapter?.addAll(t?.issueList!![0].itemList.drop(1)) //去掉第一个
+                    mAdapter?.notifyDataSetChanged()
+                    mIsFirst = false
+                    showContentView()
+                } else {
+                    context?.showToast("加载错误...")
+                    showError()
+                }
+            }
+        })
     }
 
     override fun onRefresh() {

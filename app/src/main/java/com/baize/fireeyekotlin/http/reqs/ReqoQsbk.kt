@@ -2,7 +2,7 @@ package com.baize.fireeyekotlin.http.reqs
 
 import com.baize.fireeyekotlin.http.BuildFactory
 import com.baize.fireeyekotlin.http.service.ApiQsbk
-import com.baize.fireeyekotlin.mvvm.model.QsbkListBean
+import com.baize.fireeyekotlin.bean.QsbkListBean
 import rx.Observable
 
 

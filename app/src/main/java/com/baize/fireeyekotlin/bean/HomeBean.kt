@@ -1,4 +1,4 @@
-package com.baize.fireeyekotlin.mvvm.model
+package com.baize.fireeyekotlin.bean
 
 /**
  * Created by 彦泽 on 2018/8/20.

@@ -1,6 +1,6 @@
 package com.baize.fireeyekotlin.http.service
 
-import com.baize.fireeyekotlin.mvvm.model.QsbkListBean
+import com.baize.fireeyekotlin.bean.QsbkListBean
 import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable

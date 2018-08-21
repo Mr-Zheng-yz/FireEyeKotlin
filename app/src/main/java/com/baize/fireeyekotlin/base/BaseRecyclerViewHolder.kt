@@ -6,7 +6,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
 
-abstract class BaseRecyclerViewHolder<T, D : ViewDataBinding>(viewGroup: ViewGroup, layoutId: Int) : RecyclerView.ViewHolder(DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(viewGroup.context), layoutId, viewGroup, false).root) {
+abstract class BaseRecyclerViewHolder<in T, D : ViewDataBinding>(viewGroup: ViewGroup, layoutId: Int) : RecyclerView.ViewHolder(DataBindingUtil.inflate<ViewDataBinding>(LayoutInflater.from(viewGroup.context), layoutId, viewGroup, false).root) {
 
     var binding: D
 

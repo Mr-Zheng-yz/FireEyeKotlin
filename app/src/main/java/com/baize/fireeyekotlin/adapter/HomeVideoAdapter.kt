@@ -5,7 +5,7 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.base.BaseRecyclerViewAdapter
 import com.baize.fireeyekotlin.base.BaseRecyclerViewHolder
 import com.baize.fireeyekotlin.databinding.ItemHomeVideoBinding
-import com.baize.fireeyekotlin.mvvm.model.HomeBean
+import com.baize.fireeyekotlin.bean.HomeBean
 
 /**
  * Created by 彦泽 on 2018/8/21.

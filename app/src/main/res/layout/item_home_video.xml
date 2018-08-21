@@ -8,7 +8,7 @@
 
         <variable
             name="entity"
-            type="com.baize.fireeyekotlin.mvvm.model.HomeBean.IssueListBean.ItemListBean" />
+            type="com.baize.fireeyekotlin.bean.HomeBean.IssueListBean.ItemListBean" />
     </data>
 
     <RelativeLayout

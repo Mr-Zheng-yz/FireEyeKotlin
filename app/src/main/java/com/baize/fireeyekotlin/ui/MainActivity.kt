@@ -13,7 +13,7 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.databinding.ActivityMainBinding
 import com.baize.fireeyekotlin.http.DefaultSubscriber
 import com.baize.fireeyekotlin.http.reqs.ReqoQsbk
-import com.baize.fireeyekotlin.mvvm.model.QsbkListBean
+import com.baize.fireeyekotlin.bean.QsbkListBean
 import com.baize.fireeyekotlin.test.TestFragment
 import com.baize.fireeyekotlin.ui.home.HomeFragment
 import com.baize.fireeyekotlin.utils.DebugUtil
@@ -76,19 +76,23 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
         tv_bar_title.text = today
         tv_bar_title.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")
         iv_search.setOnClickListener {
-            showToast("搜索")
-            ReqoQsbk.instance.getQsbk(1)
-                    .subscribe(object : DefaultSubscriber<QsbkListBean>() {
-                        override fun _onError(errMsg: String) {
-                            showToast(errMsg)
-                            DebugUtil.e(msg = errMsg)
-                        }
+            if (bottom_navigation_bar.currentSelectedPosition in 0..2) {
+                showToast("搜索")
+                ReqoQsbk.instance.getQsbk(1)
+                        .subscribe(object : DefaultSubscriber<QsbkListBean>() {
+                            override fun _onError(errMsg: String) {
+                                showToast(errMsg)
+                                DebugUtil.e(msg = errMsg)
+                            }
 
-                        override fun _onNext(entity: QsbkListBean) {
-                            DebugUtil.e(msg = entity.toString())
-                            showToast(entity.items!![0].content.toString())
-                        }
-                    })
+                            override fun _onNext(entity: QsbkListBean) {
+                                DebugUtil.e(msg = entity.toString())
+                                showToast(entity.items!![0].content.toString())
+                            }
+                        })
+            } else {
+                showToast("设置")
+            }
         }
     }
 

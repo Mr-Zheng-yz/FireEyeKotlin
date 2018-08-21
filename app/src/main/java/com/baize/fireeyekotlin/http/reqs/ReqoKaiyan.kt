@@ -2,7 +2,7 @@ package com.baize.fireeyekotlin.http.reqs
 
 import com.baize.fireeyekotlin.http.BuildFactory
 import com.baize.fireeyekotlin.http.service.ApiKaiyan
-import com.baize.fireeyekotlin.mvvm.model.HomeBean
+import com.baize.fireeyekotlin.bean.HomeBean
 import rx.Observable
 
 /**

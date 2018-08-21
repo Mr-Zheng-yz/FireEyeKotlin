@@ -1,4 +1,4 @@
-package com.baize.fireeyekotlin.mvvm.model
+package com.baize.fireeyekotlin.bean
 
 data class QsbkListBean(var count: Int = 0,
                         var err: Int = 0,
