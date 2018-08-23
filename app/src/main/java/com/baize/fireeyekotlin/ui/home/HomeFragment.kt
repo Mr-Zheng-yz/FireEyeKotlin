@@ -47,7 +47,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
         })
 
-        mAdapter = HomeVideoAdapter()
+        mAdapter = HomeVideoAdapter(context)
         xrv_home.adapter = mAdapter
     }
 

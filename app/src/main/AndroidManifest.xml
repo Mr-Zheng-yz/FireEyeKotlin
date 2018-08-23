@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.baize.fireeyekotlin">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".app.FireEyeApp"
@@ -24,6 +24,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.MainActivity" />
+        <activity
+            android:name=".ui.VideoDetailActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/VideoBlackTheme" />
     </application>
 
 </manifest>

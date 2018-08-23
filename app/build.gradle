@@ -63,5 +63,6 @@ dependencies {
     // Rxjava,ReactiveStreams support for LiveData
 //    implementation "android.arch.persistence.room:rxjava2:1.1.1"
     implementation "android.arch.lifecycle:reactivestreams:1.1.1"
+    compile 'com.shuyu:GSYVideoPlayer:5.0.2'
 }
 

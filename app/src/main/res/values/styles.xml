@@ -27,4 +27,24 @@
         <item name="android:activityOpenExitAnimation">@anim/activity_up_out</item>
     </style>
 
+    <!--视屏详情界面使用黑色主题-->
+    <style name="VideoBlackTheme" parent="AppBaseTheme">
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorAccent">@color/black</item>
+    </style>
+
+    <!--搜索对话框主题-->
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/transparent</item>
+    </style>
+    <!--取消FragmentDialog过度动画-->
+    <style name="DialogEmptyAnimation" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@null</item>
+        <item name="android:windowExitAnimation">@null</item>
+    </style>
 </resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="str"
+            type="String" />
+    </data>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/sharpe_corner_gray"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="@{str}"
+        android:textColor="@color/white"
+        tools:text="我的" />
+
+</layout>

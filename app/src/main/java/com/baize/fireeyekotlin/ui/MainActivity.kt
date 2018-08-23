@@ -11,12 +11,10 @@ import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.databinding.ActivityMainBinding
-import com.baize.fireeyekotlin.http.DefaultSubscriber
-import com.baize.fireeyekotlin.http.reqs.ReqoQsbk
-import com.baize.fireeyekotlin.bean.QsbkListBean
 import com.baize.fireeyekotlin.test.TestFragment
 import com.baize.fireeyekotlin.ui.home.HomeFragment
-import com.baize.fireeyekotlin.utils.DebugUtil
+import com.baize.fireeyekotlin.ui.seach.SEARCH_TAG
+import com.baize.fireeyekotlin.ui.seach.SearchFragment
 import com.baize.fireeyekotlin.utils.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -32,6 +30,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
     private var findFragment: Fragment? = null
     private var hotFragment: Fragment? = null
     private var mineFragment: Fragment? = null
+    private lateinit var searchFragment: SearchFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -78,18 +77,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
         iv_search.setOnClickListener {
             if (bottom_navigation_bar.currentSelectedPosition in 0..2) {
                 showToast("搜索")
-                ReqoQsbk.instance.getQsbk(1)
-                        .subscribe(object : DefaultSubscriber<QsbkListBean>() {
-                            override fun _onError(errMsg: String) {
-                                showToast(errMsg)
-                                DebugUtil.e(msg = errMsg)
-                            }
-
-                            override fun _onNext(entity: QsbkListBean) {
-                                DebugUtil.e(msg = entity.toString())
-                                showToast(entity.items!![0].content.toString())
-                            }
-                        })
+                searchFragment = SearchFragment()
+                searchFragment.show(fragmentManager, SEARCH_TAG)
             } else {
                 showToast("设置")
             }
@@ -169,5 +158,4 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
 
     override fun onTabUnselected(position: Int) {
     }
-
 }
