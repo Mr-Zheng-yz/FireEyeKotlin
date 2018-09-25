@@ -29,6 +29,7 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait"
             android:theme="@style/VideoBlackTheme" />
+        <activity android:name=".ui.ResultActivity"></activity>
     </application>
 
 </manifest>

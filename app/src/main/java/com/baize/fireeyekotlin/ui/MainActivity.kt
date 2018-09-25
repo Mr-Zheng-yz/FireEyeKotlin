@@ -15,6 +15,7 @@ import com.baize.fireeyekotlin.test.TestFragment
 import com.baize.fireeyekotlin.ui.home.HomeFragment
 import com.baize.fireeyekotlin.ui.seach.SEARCH_TAG
 import com.baize.fireeyekotlin.ui.seach.SearchFragment
+import com.baize.fireeyekotlin.utils.log.L
 import com.baize.fireeyekotlin.utils.showToast
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -94,6 +95,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
         if (index < 0) {
             index = 0
         }
+        L.i(msg = "今天是 ${list[index]}")
         return list[index]
     }
 

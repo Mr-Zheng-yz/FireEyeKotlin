@@ -22,8 +22,6 @@ import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 import java.io.FileInputStream
 
-//TODO 视频暂停后旋转，Video控件变黑屏问题。 视频下载功能。  分享功能。
-
 class VideoDetailActivity : AppCompatActivity() {
     lateinit var bindingView: ActivityVideoDetailBinding
     lateinit var orientation: OrientationUtils
@@ -99,6 +97,12 @@ class VideoDetailActivity : AppCompatActivity() {
             //第一个true是否需要隐藏actionbar，第二个true是否需要隐藏statusbar
             gsy_player.startWindowFullscreen(this, true, true)
         }
+
+        //点击锁定
+        gsy_player.setLockClickListener { view, lock ->
+            //配合下方的onConfigurationChanged
+            orientation.isEnable = !lock
+        }
     }
 
     //异步下载图片并显示
@@ -151,19 +155,6 @@ class VideoDetailActivity : AppCompatActivity() {
         //如果旋转了就全屏
         if (isPlay && !isPause) {
             gsy_player.onConfigurationChanged(this, newConfig, orientation, true, true);
-//            if (isPlay && !isPause) {
-//                if (newConfig?.orientation == ActivityInfo.SCREEN_ORIENTATION_USER) {
-//                    if (!gsy_player.isIfCurrentIsFullscreen) {
-//                        gsy_player.startWindowFullscreen(this, true, true)
-//                    }
-//                } else {
-//                    //新版本isIfCurrentIsFullscreen的标志位内部提前设置了，所以不会和手动点击冲突
-//                    if (gsy_player.isIfCurrentIsFullscreen) {
-//                        GSYVideoManager.backFromWindowFull(this)
-//                    }
-//                    orientation?.let { orientation.isEnable = true }
-//                }
-//            }
         }
     }
 }

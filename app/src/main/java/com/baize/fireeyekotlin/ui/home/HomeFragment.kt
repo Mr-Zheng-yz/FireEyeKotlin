@@ -7,7 +7,6 @@ import android.support.v7.widget.LinearLayoutManager
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.adapter.HomeVideoAdapter
 import com.baize.fireeyekotlin.base.BaseFragment
-import com.baize.fireeyekotlin.databinding.FragmentHomeBinding
 import com.baize.fireeyekotlin.bean.HomeBean
 import com.baize.fireeyekotlin.mvvm.viewmodel.HomeViewModel
 import com.baize.fireeyekotlin.utils.showToast
@@ -17,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 /**
  * Created by 彦泽 on 2018/8/14.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class HomeFragment : BaseFragment() {
     private var mIsFirst = true
     private var mPrepare = false
     private var mAdapter: HomeVideoAdapter? = null

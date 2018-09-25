@@ -7,22 +7,23 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.base.BaseRecyclerViewAdapter
 import com.baize.fireeyekotlin.base.BaseRecyclerViewHolder
 import com.baize.fireeyekotlin.databinding.ItemSearchBinding
+import com.baize.fireeyekotlin.ui.ResultActivity
 import com.baize.fireeyekotlin.utils.showToast
 import com.google.android.flexbox.FlexboxLayoutManager
 
 /**
  * Created by 彦泽 on 2018/8/23.
  */
-class SearchAdapter(context: Context,onDialogDismiss: onDialogDismiss) : BaseRecyclerViewAdapter<String>() {
+class SearchAdapter(context: Context, onDialogDismiss: onDialogDismiss) : BaseRecyclerViewAdapter<String>() {
     var mContext: Context = context
     var mDialogListener = onDialogDismiss
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseRecyclerViewHolder<String, *> {
-        return SearchViewHolder(parent, R.layout.item_search,mContext,mDialogListener)
+        return SearchViewHolder(parent, R.layout.item_search, mContext, mDialogListener)
     }
 
-    class SearchViewHolder(viewGroup: ViewGroup, layoutId: Int, context: Context, dialogListener: onDialogDismiss?) : BaseRecyclerViewHolder<String, ItemSearchBinding>(viewGroup, layoutId) {
+    class SearchViewHolder(viewGroup: ViewGroup, layoutId: Int, context: Context, dialogListener: onDialogDismiss) : BaseRecyclerViewHolder<String, ItemSearchBinding>(viewGroup, layoutId) {
         var mDialogListener = dialogListener
         var mContext: Context = context
 
@@ -33,12 +34,11 @@ class SearchAdapter(context: Context,onDialogDismiss: onDialogDismiss) : BaseRec
                 (binding.tvTitle.layoutParams as FlexboxLayoutManager.LayoutParams).flexGrow = 1.0f
             }
             binding.tvTitle.setOnClickListener {
-                //                var keyWord = entity
-//                var intent : Intent = Intent(context,ResultActivity::class.java)
-//                intent.putExtra("keyWord",keyWord)
-//                context?.startActivity(intent)
-//                mDialogListener?.onDismiss()
-                mContext.showToast("跳转至结果界面")
+                val keyWord = entity
+                val intent: Intent = Intent(mContext, ResultActivity::class.java)
+                intent.putExtra("keyWord", keyWord)
+                mContext.startActivity(intent)
+                mDialogListener.onDismiss()
             }
         }
     }

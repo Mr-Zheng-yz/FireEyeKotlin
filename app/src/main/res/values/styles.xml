@@ -47,4 +47,18 @@
         <item name="android:windowEnterAnimation">@null</item>
         <item name="android:windowExitAnimation">@null</item>
     </style>
+
+    <!--titleBar样式-->
+    <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="actionBarItemBackground">@drawable/toolbarItemBackground</item>
+        <item name="selectableItemBackground">@drawable/toolbarItemBackground</item>
+        <item name="titleTextAppearance">@style/ToolBar.Title</item>
+        <item name="android:windowNoTitle">true</item>
+        <!--<item name="android:textSize">18sp</item> &lt;!&ndash;  搞掂字体大小&ndash;&gt;-->
+    </style>
+    <!--titlebar 标题-->
+    <style name="ToolBar.Title" parent="@style/TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textSize">18.0sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

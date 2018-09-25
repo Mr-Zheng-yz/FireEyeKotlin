@@ -1,6 +1,7 @@
 package com.baize.fireeyekotlin.http.service
 
 import com.baize.fireeyekotlin.bean.HomeBean
+import com.baize.fireeyekotlin.bean.SearchBean
 import retrofit2.http.GET
 import retrofit2.http.Query
 import rx.Observable
@@ -10,7 +11,7 @@ import rx.Observable
  */
 interface ApiKaiyan {
     companion object {
-        val API_KAIYAN  = "http://baobab.kaiyanapp.com/api/"
+        val API_KAIYAN = "http://baobab.kaiyanapp.com/api/"
     }
 
     //获取首页第一页数据
@@ -19,6 +20,11 @@ interface ApiKaiyan {
 
     //获取首页第一页之后的数据  ?date=1499043600000&num=2
     @GET("v2/feed")
-    fun getHomeMoreData(@Query("date") date :String, @Query("num") num :String) : Observable<HomeBean>
+    fun getHomeMoreData(@Query("date") date: String, @Query("num") num: String): Observable<HomeBean>
 
+
+    //根据关键词获取相关信息
+    @GET("v1/search")
+    fun getSearchData(@Query("num") num: Int, @Query("query") query: String
+                      , @Query("start") start: Int): Observable<SearchBean>
 }

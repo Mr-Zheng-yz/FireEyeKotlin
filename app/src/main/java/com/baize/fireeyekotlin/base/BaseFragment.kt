@@ -1,37 +1,35 @@
 package com.baize.fireeyekotlin.base
 
-import android.databinding.DataBindingUtil
-import android.databinding.ViewDataBinding
 import android.graphics.drawable.AnimationDrawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.utils.PerfectClickListener
 import kotlinx.android.synthetic.main.fragment_base.*
+import kotlinx.android.synthetic.main.layout_empty_view.*
 import kotlinx.android.synthetic.main.layout_loading_view.*
 import rx.Subscription
 import rx.subscriptions.CompositeSubscription
 
 /**
- * Created by 彦泽 on 2018/8/15.
+ * Created by 彦泽 on 2018/9/6.
  */
-abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
+abstract class BaseFragment : Fragment() {
 
-    // 布局view
-    protected lateinit var bindingView: SV
+    // 子布局内容view
+    private lateinit var mContentView: View
+    // 加载中
+    private lateinit var loadingView: View
+    // 加载失败，刷新布局
+    private lateinit var errorView: View
+    //空布局
+    private lateinit var emptyView: View
     // fragment是否显示了
     protected var mIsVisible = false
-    // 加载中
-    private var loadingView: View? = null
-    // 加载失败，刷新布局
-    private var mRefresh: LinearLayout? = null
-    // 内容布局
-    protected lateinit var mContainer: RelativeLayout
     // 动画
     private var mAnimationDrawable: AnimationDrawable? = null
 
@@ -39,11 +37,11 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val ll = inflater.inflate(R.layout.fragment_base, null)
-        bindingView = DataBindingUtil.inflate(activity!!.layoutInflater, setContent(), null, false)
+        mContentView = activity!!.layoutInflater.inflate(setContent(), null, false)
         val params = RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
-        bindingView.root.layoutParams = params
-        mContainer = ll.findViewById(R.id.container)
-        mContainer.addView(bindingView.root)
+        mContentView.layoutParams = params
+        val container: RelativeLayout = ll.findViewById(R.id.container)
+        container.addView(mContentView)
         return ll
     }
 
@@ -78,27 +76,26 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         loadingView = vs_loading.inflate()
+        errorView = vs_error.inflate()
+        emptyView = vs_empty.inflate()
 
         // 加载动画
-        mAnimationDrawable = img_progress.getDrawable() as AnimationDrawable?
+        mAnimationDrawable = img_progress.drawable as AnimationDrawable?
         // 默认进入页面就开启动画
         if (!mAnimationDrawable!!.isRunning) {
             mAnimationDrawable!!.start()
         }
-        mRefresh = getView(R.id.ll_error_refresh)
         // 点击加载失败布局
-        mRefresh!!.setOnClickListener(object : PerfectClickListener() {
+        errorView.setOnClickListener(object : PerfectClickListener() {
             override fun onNoDoubleClick(v: View) {
                 showLoading()
                 onRefresh()
             }
         })
-        bindingView.root.visibility = View.GONE
 
-    }
-
-    protected fun <T : View> getView(id: Int): T {
-        return view!!.findViewById<View>(id) as T
+        emptyView.visibility = View.GONE
+        errorView.visibility = View.GONE
+        mContentView.visibility = View.GONE
     }
 
     /**
@@ -116,18 +113,21 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
      * 显示加载中状态
      */
     protected fun showLoading() {
-        if (loadingView != null && loadingView!!.visibility != View.VISIBLE) {
-            loadingView!!.visibility = View.VISIBLE
+        if (loadingView.visibility != View.VISIBLE) {
+            loadingView.visibility = View.VISIBLE
         }
         // 开始动画
         if (!mAnimationDrawable!!.isRunning) {
             mAnimationDrawable!!.start()
         }
-        if (bindingView.root.visibility != View.GONE) {
-            bindingView.root.visibility = View.GONE
+        if (mContentView.visibility != View.GONE) {
+            mContentView.visibility = View.GONE
         }
-        if (mRefresh!!.visibility != View.GONE) {
-            mRefresh!!.visibility = View.GONE
+        if (errorView.visibility != View.GONE) {
+            errorView.visibility = View.GONE
+        }
+        if (emptyView.visibility != View.GONE) {
+            emptyView.visibility = View.GONE
         }
     }
 
@@ -135,18 +135,21 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
      * 加载完成的状态
      */
     protected fun showContentView() {
-        if (loadingView != null && loadingView!!.visibility != View.GONE) {
-            loadingView!!.visibility = View.GONE
+        if (loadingView.visibility != View.GONE) {
+            loadingView.visibility = View.GONE
         }
         // 停止动画
         if (mAnimationDrawable!!.isRunning) {
             mAnimationDrawable!!.stop()
         }
-        if (mRefresh!!.visibility != View.GONE) {
-            mRefresh!!.visibility = View.GONE
+        if (errorView.visibility != View.GONE) {
+            errorView.visibility = View.GONE
         }
-        if (bindingView.root.visibility != View.VISIBLE) {
-            bindingView.root.visibility = View.VISIBLE
+        if (mContentView.visibility != View.VISIBLE) {
+            mContentView.visibility = View.VISIBLE
+        }
+        if (emptyView.visibility != View.GONE) {
+            emptyView.visibility = View.GONE
         }
     }
 
@@ -154,18 +157,44 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
      * 加载失败点击重新加载的状态
      */
     protected fun showError() {
-        if (loadingView != null && loadingView!!.visibility != View.GONE) {
-            loadingView!!.visibility = View.GONE
+        if (loadingView.visibility != View.GONE) {
+            loadingView.visibility = View.GONE
         }
         // 停止动画
         if (mAnimationDrawable!!.isRunning) {
             mAnimationDrawable!!.stop()
         }
-        if (mRefresh!!.visibility != View.VISIBLE) {
-            mRefresh!!.visibility = View.VISIBLE
+        if (errorView.visibility != View.VISIBLE) {
+            errorView.visibility = View.VISIBLE
         }
-        if (bindingView.root.visibility != View.GONE) {
-            bindingView.root.visibility = View.GONE
+        if (mContentView.visibility != View.GONE) {
+            mContentView.visibility = View.GONE
+        }
+        if (emptyView.visibility != View.GONE) {
+            emptyView.visibility = View.GONE
+        }
+    }
+
+    /**
+     * 显示空布局
+     */
+    protected fun showEmpty(tips: String = "数据为空哦~") {
+        if (loadingView.visibility != View.GONE) {
+            loadingView.visibility = View.GONE
+        }
+        // 停止动画
+        if (mAnimationDrawable!!.isRunning) {
+            mAnimationDrawable!!.stop()
+        }
+        if (errorView.visibility != View.GONE) {
+            errorView.visibility = View.GONE
+        }
+        if (mContentView.visibility != View.GONE) {
+            mContentView.visibility = View.GONE
+        }
+        if (emptyView.visibility != View.VISIBLE) {
+            tv_empty_tips.text = tips
+            emptyView.visibility = View.VISIBLE
         }
     }
 
@@ -188,4 +217,5 @@ abstract class BaseFragment<SV : ViewDataBinding> : Fragment() {
             this.mCompositeSubscription!!.unsubscribe()
         }
     }
+
 }

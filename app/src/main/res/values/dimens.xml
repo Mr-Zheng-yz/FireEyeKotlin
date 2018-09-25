@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="font_six">6sp</dimen>
+    <dimen name="font_seven">7sp</dimen>
+    <dimen name="font_eight">8sp</dimen>
+    <dimen name="font_super_small">9sp</dimen>
+    <dimen name="font_ten_small">10sp</dimen>
+    <dimen name="font_small">12sp</dimen>
+    <dimen name="font_forteen">14sp</dimen>
+    <dimen name="font_fifteen">15sp</dimen>
+    <dimen name="font_normal">16sp</dimen>
+    <dimen name="font_large">18sp</dimen>
+    <dimen name="font_huge">22sp</dimen>
+    <dimen name="font_super_big">25sp</dimen>
+
+</resources>

@@ -11,8 +11,8 @@ import android.view.*
 import android.widget.Toast
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.adapter.SearchAdapter
+import com.baize.fireeyekotlin.ui.ResultActivity
 import com.baize.fireeyekotlin.utils.KeyBoardUtils
-import com.baize.fireeyekotlin.utils.showToast
 import com.google.android.flexbox.FlexDirection
 import com.google.android.flexbox.FlexWrap
 import com.google.android.flexbox.FlexboxLayoutManager
@@ -124,11 +124,10 @@ class SearchFragment : DialogFragment(), CircularRevealAnim.AnimListener,
             Toast.makeText(activity, "请输入关键字", Toast.LENGTH_SHORT).show()
         } else {
             hideAnim()
-            activity.showToast("跳转至搜索结果")
-//            var keyWord = et_search_keyword.text.toString().trim()
-//            var intent: Intent = Intent(activity, ResultActivity::class.java)
-//            intent.putExtra("keyWord", keyWord)
-//            activity?.startActivity(intent)
+            var keyWord = et_search_keyword.text.toString().trim()
+            var intent: Intent = Intent(activity, ResultActivity::class.java)
+            intent.putExtra("keyWord", keyWord)
+            activity?.startActivity(intent)
         }
     }
 
