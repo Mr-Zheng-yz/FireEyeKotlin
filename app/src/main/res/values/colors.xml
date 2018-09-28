@@ -17,4 +17,8 @@
     <color name="divider">#e6e6e6</color>
     <color name="textbg">#8F9AA8</color>
 
+    <color name="green">#6CC69A</color>
+    <color name="yellow">#ECA661</color>
+    <color name="red">#DC5050</color>
+    <color name="purple">#9880d6</color>
 </resources>

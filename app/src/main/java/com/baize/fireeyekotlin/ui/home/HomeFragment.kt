@@ -62,7 +62,7 @@ class HomeFragment : BaseFragment() {
         mViewModel?.homeVideo?.observe(this, object : Observer<HomeBean> {
             override fun onChanged(t: HomeBean?) {
                 if (t != null) {
-                    mAdapter?.addAll(t?.issueList!![0].itemList.drop(1)) //去掉第一个
+                    mAdapter?.addAll(t.issueList!![0].itemList.drop(1)) //去掉第一个
                     mAdapter?.notifyDataSetChanged()
                     mIsFirst = false
                     showContentView()

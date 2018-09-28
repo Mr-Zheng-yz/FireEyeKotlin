@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentTransaction
+import android.view.KeyEvent
 import android.view.View
 import com.ashokvarma.bottomnavigation.BottomNavigationBar
 import com.ashokvarma.bottomnavigation.BottomNavigationItem
@@ -13,6 +14,9 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.databinding.ActivityMainBinding
 import com.baize.fireeyekotlin.test.TestFragment
 import com.baize.fireeyekotlin.ui.home.HomeFragment
+import com.baize.fireeyekotlin.ui.home.HotFragment
+import com.baize.fireeyekotlin.ui.home.MineFragment
+import com.baize.fireeyekotlin.ui.home.RankFragment
 import com.baize.fireeyekotlin.ui.seach.SEARCH_TAG
 import com.baize.fireeyekotlin.ui.seach.SearchFragment
 import com.baize.fireeyekotlin.utils.log.L
@@ -77,7 +81,6 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
         tv_bar_title.typeface = Typeface.createFromAsset(this.assets, "fonts/Lobster-1.4.otf")
         iv_search.setOnClickListener {
             if (bottom_navigation_bar.currentSelectedPosition in 0..2) {
-                showToast("搜索")
                 searchFragment = SearchFragment()
                 searchFragment.show(fragmentManager, SEARCH_TAG)
             } else {
@@ -121,9 +124,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
                 tv_bar_title.visibility = View.VISIBLE
                 iv_search.setImageResource(R.drawable.icon_search)
                 if (findFragment == null) {
-                    findFragment = TestFragment()
+                    findFragment = RankFragment()
                     transaction.add(R.id.fl_content, findFragment)
-                    fragments.add(findFragment as TestFragment)
+                    fragments.add(findFragment as RankFragment)
                 } else {
                     transaction.show(findFragment)
                 }
@@ -133,9 +136,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
                 tv_bar_title.visibility = View.VISIBLE
                 iv_search.setImageResource(R.drawable.icon_search)
                 if (hotFragment == null) {
-                    hotFragment = TestFragment()
+                    hotFragment = HotFragment()
                     transaction.add(R.id.fl_content, hotFragment)
-                    fragments.add(hotFragment as TestFragment)
+                    fragments.add(hotFragment as HotFragment)
                 } else {
                     transaction.show(hotFragment)
                 }
@@ -144,9 +147,9 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
                 tv_bar_title.visibility = View.INVISIBLE
                 iv_search.setImageResource(R.drawable.icon_setting)
                 if (mineFragment == null) {
-                    mineFragment = TestFragment()
+                    mineFragment = MineFragment()
                     transaction.add(R.id.fl_content, mineFragment)
-                    fragments.add(mineFragment as TestFragment)
+                    fragments.add(mineFragment as MineFragment)
                 } else {
                     transaction.show(mineFragment)
                 }
@@ -159,5 +162,14 @@ class MainActivity : AppCompatActivity(), BottomNavigationBar.OnTabSelectedListe
     }
 
     override fun onTabUnselected(position: Int) {
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent): Boolean {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            // 不退出程序，进入后台
+            moveTaskToBack(true)
+            return true
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }

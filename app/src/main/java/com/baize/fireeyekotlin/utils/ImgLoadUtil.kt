@@ -31,6 +31,22 @@ class ImgLoadUtil {
                     .into(iv)
         }
 
+        @BindingAdapter("load_normal_img")
+        @JvmStatic
+        fun loadNormalImg(iv: ImageView, imgUrl: String?) {
+            if (imgUrl == null) {
+                return
+            }
+            Glide.with(iv.context)
+                    .load(imgUrl)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .centerCrop()
+                    .placeholder(R.drawable.img_four_bi_three)
+                    .error(R.drawable.load_err)
+                    .crossFade()
+                    .into(iv)
+        }
+
         //加载首页视频作者头像：
         /**
          * 这里placeholder()导致了图片变形
