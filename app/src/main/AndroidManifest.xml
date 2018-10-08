@@ -8,9 +8,9 @@
     <application
         android:name=".app.FireEyeApp"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/icon_tv_lancher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/icon_tv_lancher"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
@@ -30,7 +30,8 @@
             android:screenOrientation="portrait"
             android:theme="@style/VideoBlackTheme" />
         <activity android:name=".ui.ResultActivity" />
-        <activity android:name=".ui.RankDetailActivity"></activity>
+        <activity android:name=".ui.RankDetailActivity" />
+        <activity android:name=".ui.AdviseActivity"></activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@
     tools:context="com.baize.fireeyekotlin.ui.VideoDetailActivity">
 
     <data>
+
         <variable
             name="entity"
             type="com.baize.fireeyekotlin.bean.VideoBean" />
@@ -37,6 +38,7 @@
                 load_high_img="@{entity.blurred}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -137,7 +139,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:background="@drawable/ic_action_reply" />
+                    android:background="@drawable/ic_action_reply"
+                    android:visibility="gone" />
 
                 <TextView
                     android:id="@+id/tv_video_reply"
@@ -146,6 +149,7 @@
                     android:layout_marginLeft="5dp"
                     android:text="@{entity.share.toString()}"
                     android:textColor="@color/white"
+                    android:visibility="gone"
                     tools:text="评论" />
 
                 <ImageView

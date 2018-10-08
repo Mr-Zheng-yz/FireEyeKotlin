@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">FireEyeKotlin</string>
+    <string name="app_name">眼界</string>
+
+
+    <string name="e_mail">lrh19930211@163.com</string>
+    <string name="github">https://github.com/LRH1993</string>
+    <string name="blog">www.lruheng.com</string>
+
 </resources>

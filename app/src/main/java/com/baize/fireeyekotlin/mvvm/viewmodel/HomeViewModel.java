@@ -5,6 +5,7 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.baize.fireeyekotlin.bean.HomeBean;
+import com.baize.fireeyekotlin.mvvm.model.HomeMoreVideoRepository;
 import com.baize.fireeyekotlin.mvvm.model.HomeVideoRepository;
 
 /**
@@ -15,12 +16,14 @@ public class HomeViewModel extends ViewModel {
 
     private MutableLiveData<HomeBean> homeVideoBean;
     private HomeVideoRepository homeVideoRepository;
+    private HomeMoreVideoRepository homeMoreVideoRepository;
 
     /**
      * UserRepository parameter is provided by Dagger 2
      */
     public HomeViewModel() {
         homeVideoRepository = new HomeVideoRepository();
+        homeMoreVideoRepository = new HomeMoreVideoRepository();
     }
 
     public LiveData<HomeBean> getHomeVideo() {
@@ -31,6 +34,10 @@ public class HomeViewModel extends ViewModel {
         } else {
             return homeVideoBean;
         }
+    }
+
+    public LiveData<HomeBean> getHomeMoreVideo(String date){
+        return homeMoreVideoRepository.getHomeMoreData(date);
     }
 
     private MutableLiveData<HomeBean> loadHomeVideo() {

@@ -1,10 +1,12 @@
 package com.baize.fireeyekotlin.ui.home
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.base.BaseFragment
+import com.baize.fireeyekotlin.ui.AdviseActivity
 import com.baize.fireeyekotlin.utils.PerfectClickListener
 import com.baize.fireeyekotlin.utils.showToast
 import kotlinx.android.synthetic.main.fragment_mine.*
@@ -37,7 +39,7 @@ class MineFragment : BaseFragment() {
         override fun onNoDoubleClick(v: View) {
             when (v.id) {
                 R.id.tv_advise -> {
-                    context?.showToast(message = "意见返回功能暂未开放")
+                    context?.startActivity(Intent(context, AdviseActivity::class.java))
                 }
                 R.id.tv_save -> {
                     context?.showToast(message = "我的缓存")

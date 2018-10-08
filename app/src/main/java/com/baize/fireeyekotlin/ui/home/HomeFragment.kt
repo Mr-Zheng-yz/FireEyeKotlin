@@ -12,6 +12,7 @@ import com.baize.fireeyekotlin.mvvm.viewmodel.HomeViewModel
 import com.baize.fireeyekotlin.utils.showToast
 import com.example.xrecyclerview.XRecyclerView
 import kotlinx.android.synthetic.main.fragment_home.*
+import java.util.regex.Pattern
 
 /**
  * Created by 彦泽 on 2018/8/14.
@@ -19,8 +20,9 @@ import kotlinx.android.synthetic.main.fragment_home.*
 class HomeFragment : BaseFragment() {
     private var mIsFirst = true
     private var mPrepare = false
-    private var mAdapter: HomeVideoAdapter? = null
+    private lateinit var mAdapter: HomeVideoAdapter
     private var mViewModel: HomeViewModel? = null
+    var data: String? = null
 
     override fun setContent(): Int {
         return R.layout.fragment_home
@@ -36,13 +38,15 @@ class HomeFragment : BaseFragment() {
 
     private fun initView() {
         xrv_home.layoutManager = LinearLayoutManager(activity)
-        xrv_home.setLoadingMoreEnabled(false)
-        xrv_home.setPullRefreshEnabled(false)
+        xrv_home.setLoadingMoreEnabled(true)
+        xrv_home.setPullRefreshEnabled(true)
         xrv_home.setLoadingListener(object : XRecyclerView.LoadingListener {
             override fun onRefresh() {
+                requestNet()
             }
 
             override fun onLoadMore() {
+                moreData()
             }
         })
 
@@ -54,18 +58,14 @@ class HomeFragment : BaseFragment() {
         if (!mPrepare or !mIsFirst or isHidden) {
             return
         }
-        activity?.showToast("加载数据了")
         requestNet()
     }
 
-    fun requestNet() {
+    private fun requestNet() {
         mViewModel?.homeVideo?.observe(this, object : Observer<HomeBean> {
             override fun onChanged(t: HomeBean?) {
                 if (t != null) {
-                    mAdapter?.addAll(t.issueList!![0].itemList.drop(1)) //去掉第一个
-                    mAdapter?.notifyDataSetChanged()
-                    mIsFirst = false
-                    showContentView()
+                    setData(t, true)
                 } else {
                     context?.showToast("加载错误...")
                     showError()
@@ -74,8 +74,38 @@ class HomeFragment : BaseFragment() {
         })
     }
 
+    private fun moreData() {
+        mViewModel?.getHomeMoreVideo(data)?.observe(this, object : Observer<HomeBean> {
+            override fun onChanged(t: HomeBean?) {
+                if (t != null) {
+                    setData(t, false)
+                }
+            }
+        })
+    }
+
+    private fun setData(homeBean: HomeBean, isFirst: Boolean) {
+        val regEx = "[^0-9]"
+        val p = Pattern.compile(regEx)
+        val m = p.matcher(homeBean.nextPageUrl)
+        data = m.replaceAll("").subSequence(1, m.replaceAll("").length - 1).toString()
+
+        xrv_home.refreshComplete()
+        if (isFirst) {//刷新
+            mAdapter.data.clear()
+        }
+
+        homeBean.issueList!!
+                .flatMap { it.itemList!! }
+                .filter { it.type.equals("video") }
+                .forEach { mAdapter.add(it) }
+//        mAdapter.addAll(homeBean.issueList!![0].itemList.drop(1)) //去掉第一个
+        mAdapter.notifyDataSetChanged()
+        mIsFirst = false
+        showContentView()
+    }
+
     override fun onRefresh() {
         requestNet()
     }
-
 }

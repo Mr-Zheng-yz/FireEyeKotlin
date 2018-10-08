@@ -40,7 +40,6 @@ class ImgLoadUtil {
             Glide.with(iv.context)
                     .load(imgUrl)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
-                    .centerCrop()
                     .placeholder(R.drawable.img_four_bi_three)
                     .error(R.drawable.load_err)
                     .crossFade()

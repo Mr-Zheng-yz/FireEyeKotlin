@@ -1,5 +1,6 @@
 package com.baize.fireeyekotlin.ui
 
+import android.content.Context
 import android.content.res.Configuration
 import android.databinding.DataBindingUtil
 import android.graphics.BitmapFactory
@@ -11,6 +12,7 @@ import com.baize.fireeyekotlin.R
 import com.baize.fireeyekotlin.bean.VideoBean
 import com.baize.fireeyekotlin.databinding.ActivityVideoDetailBinding
 import com.baize.fireeyekotlin.utils.DebugUtil
+import com.baize.fireeyekotlin.utils.PerfectClickListener
 import com.baize.fireeyekotlin.utils.showToast
 import com.bumptech.glide.Glide
 import com.shuyu.gsyvideoplayer.GSYVideoManager
@@ -41,6 +43,12 @@ class VideoDetailActivity : AppCompatActivity() {
     //初始化布局
     private fun initView() {
         bindingView.entity = bean
+
+        val onclickEvent = OnclickEvent(this)
+        tv_video_favor.setOnClickListener(onclickEvent)
+        tv_video_share.setOnClickListener(onclickEvent)
+        tv_video_reply.setOnClickListener(onclickEvent)
+        tv_video_download.setOnClickListener(onclickEvent)
     }
 
     //准备视频播放
@@ -122,6 +130,25 @@ class VideoDetailActivity : AppCompatActivity() {
                     imageView.setImageBitmap(bitmap)
                     gsy_player.thumbImageView = imageView
                 }
+    }
+
+    class OnclickEvent(var context: Context) : PerfectClickListener() {
+        override fun onNoDoubleClick(v: View) {
+            when (v.id) {
+                R.id.tv_video_favor -> {
+                    context.showToast("喜欢")
+                }
+                R.id.tv_video_share -> {
+                    context.showToast("分享")
+                }
+                R.id.tv_video_reply -> {
+                    context.showToast("评论")
+                }
+                R.id.tv_video_download -> {
+                    context.showToast("下载")
+                }
+            }
+        }
     }
 
     override fun onPause() {

@@ -10,57 +10,57 @@
     </data>
 
     <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="250dp">
 
-        <FrameLayout
+        <ImageView
+            android:id="@+id/iv_photo"
+            load_img="@{entity.bgPicture}"
             android:layout_width="match_parent"
-            android:layout_height="250dp">
+            android:layout_height="match_parent" />
 
-            <ImageView
-                android:id="@+id/iv_photo"
-                load_img="@{entity.bgPicture}"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+        <LinearLayout
+            android:id="@+id/ll_moban"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/boman_selector"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:id="@+id/ll_moban"
+            <RelativeLayout
+                android:id="@+id/rl_text"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/boman_selector"
-                android:orientation="vertical">
+                android:gravity="center">
 
-                <RelativeLayout
-                    android:id="@+id/rl_text"
+                <TextView
+                    android:id="@+id/tv_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginTop="28dp"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    tools:text="测试" />
+
+                <TextView
+                    android:id="@+id/tv_time"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center">
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tv_title"
+                    android:layout_marginTop="2dp"
+                    android:gravity="center"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
 
-                    <TextView
-                        android:id="@+id/tv_title"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginTop="28dp"
-                        android:gravity="center"
-                        android:textColor="@color/white"
-                        android:textSize="20sp"
-                        tools:text="测试" />
+        </LinearLayout>
 
-                    <TextView
-                        android:id="@+id/tv_time"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@id/tv_title"
-                        android:layout_marginTop="2dp"
-                        android:gravity="center"
-                        android:textColor="@color/white" />
-                </RelativeLayout>
+    </FrameLayout>
 
-            </LinearLayout>
-
-        </FrameLayout>
-
-    </LinearLayout>
+</LinearLayout>
 </layout>
