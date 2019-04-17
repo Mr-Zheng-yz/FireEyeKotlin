@@ -1,7 +1,7 @@
 # FireEyeKotlin
 初次使用Kotlin开发，语法生疏，望各路大神给出意见。
 
-FireEyeKoglin踩坑日记
+FireEyeKotlin踩坑日记
 </br>
 </br>
 ----
