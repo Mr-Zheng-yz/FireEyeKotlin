@@ -14,7 +14,7 @@ FireEyeKotlin踩坑日记
 
 ![](https://i.imgur.com/X4DyLsk.png)
 
-<font><b>###kotlin与databinding冲突解决</b></font>
+### kotlin与databinding冲突解决
 
 
 近日来公司任务不多，为了不被时代的洪流落下，抽空学习了一下Kotlin。看完一些基础语法后，在GitHub上clone了一个基础项目，运行后发现bug满满。在借鉴的同时也想自己撸一个Kotlin项目。创建，编译全没问题，当导入databinding时，却报了
